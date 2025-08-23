@@ -3,7 +3,7 @@ def count_words(book_text):
     words = book_text.split()
     for word in words:
         num_words += 1
-    print(f"{num_words} words found in the document")
+    return num_words
 
 def count_character(book_text):
     num_characters = {}
@@ -13,6 +13,18 @@ def count_character(book_text):
             num_characters[character] = 1
         else:
             num_characters[character] +=1
-    print(num_characters)
+    return num_characters
 
-def sorts_on()
+def sort_on(item):
+    return item["num"]
+
+def sort_char(characters):
+    sorted_characters = []
+    for char, count in characters.items():
+        if char.isalpha():
+            sorted_characters.append({
+                "char": char,
+                "num": count
+            })
+    sorted_characters.sort(reverse=True, key=sort_on)
+    return sorted_characters

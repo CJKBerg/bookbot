@@ -8,5 +8,21 @@ def main(filepath):
 
 from stats import count_words
 from stats import count_character
-count_words(main("books/frankenstein.txt"))
-count_character(main("books/frankenstein.txt"))
+from stats import sort_char
+from stats import sort_on
+
+# count_words(main("books/frankenstein.txt"))
+# count_character(main("books/frankenstein.txt"))
+# sort_char(count_character(main("books/frankenstein.txt")))
+
+def print_report(book_path):
+    text = main(book_path)
+    words = count_words(text)
+    print(f"Found {words} total words")
+    char_count = count_character(text)
+    sorted_chars = sort_char(char_count)
+    for item in sorted_chars:
+        print(f"{item['char']}: {item['num']}")
+
+print_report("books/frankenstein.txt")
+
