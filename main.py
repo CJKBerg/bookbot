@@ -1,3 +1,5 @@
+import sys
+
 def get_book_text(filepath):
     with open(filepath) as f:
         file_contents = f.read()
@@ -24,5 +26,10 @@ def print_report(book_path):
     for item in sorted_chars:
         print(f"{item['char']}: {item['num']}")
 
-print_report("books/frankenstein.txt")
+# print_report("books/frankenstein.txt")
 
+if len(sys.argv) == 2:
+    print_report(sys.argv[1])
+else:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
